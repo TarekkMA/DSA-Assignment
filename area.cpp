@@ -45,13 +45,44 @@ public:
 
 int main ()
 {
-    Circle c(10);
-    Rectangle r(10,20);
-    Square s(30);
-    Triangle t(20,10);
-    
-    cout << "Circle=" << c.getArea() << endl;
-    cout << "Rectangle=" << r.getArea() << endl;
-    cout << "Square=" << s.getArea() << endl;
-    cout << "Triangle=" << t.getArea() << endl;
+    Shape* s;
+    int c,a,b;
+again:
+    cout << endl;
+    cout << "1.Circle\n"
+         << "2.Square\n"
+         << "3.Rectangle\n"
+    << "4.Triangle\n";
+    cout << "Enter Your Choice:";
+    cin >> c;
+    switch (c) {
+        case 1:
+        cout << "Enter r:";
+        cin >> a;
+        s = new Circle(a);
+        break;
+        case 2:
+        cout << "Enter l:";
+        cin >> a;
+        s = new Square(a);
+        break;
+        case 3:
+        cout << "Enter l:";
+        cin >> a;
+        cout << "Enter w:";
+        cin >> b;
+        s = new Rectangle(a,b);
+        break;
+        case 4:
+        cout << "Enter base:";
+        cin >> a;
+        cout << "Enter hight:";
+        cin >> b;
+        s = new Triangle(a,b);
+        break;
+        default:
+        goto again;
+    }
+    cout << "Area is " << s->getArea() << endl;
+    goto again;
 }
